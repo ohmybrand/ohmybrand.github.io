@@ -399,15 +399,15 @@
           <div class="row">
             <div class="col s12"><h2 class="section-title" style="color:yellow;"><b>Sign in today!</b></h2></div>
             <div class="input-field col s6">
-              <input name="FNAME" id="mce-FNAME" type="text" onFocus="window.scrollTo(100000, 0);">
+              <input name="FNAME" id="mce-FNAME" type="text">
               <label for="mce-EMAIL" style="color:yellow;">First Name</label>
             </div>
             <div class="input-field col s6">
-              <input name="LNAME" id="mce-LNAME" type="text" onFocus="window.scrollTo(100000, 0);">
+              <input name="LNAME" id="mce-LNAME" type="text">
               <label for="mce-LNAME" style="color:yellow;">Last Name</label>
             </div>
             <div class="input-field col s12">
-              <input name="EMAIL" id="mce-EMAIL" type="email" onFocus="window.scrollTo(100000, 0);">
+              <input name="EMAIL" id="mce-EMAIL" type="email">
               <label for="mce-EMAIL" style="color:yellow;">EMAIL</label>
               <div class="waves-effect waves-light btn-large" style="color:deeppink;background-color:yellow;"><input type="submit" value="Let's GO!" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
             </div>
@@ -436,6 +436,22 @@
     <script type="text/javascript">
         document.getElementById("mc-embedded-subscribe").addEventListener("click", function(){
             jQuery(document).ready(function ($){$('#modal1').modal('open'); setTimeout(function(){$('#modal1').modal('close');},2500)})
+        });
+        var currentScrollPosition = 0;
+        jQuery(document).ready(function ($){
+          $(document).scroll(function(){
+              currentScrollPosition = $(this).scrollTop();
+          });
+          $("mce-FNAME").focus(function(){
+              $(document).scrollTop(currentScrollPosition);
+          });
+          $("mce-LNAME").focus(function(){
+              $(document).scrollTop(currentScrollPosition);
+          });
+          $("mce-EMAIL").focus(function(){
+              $(document).scrollTop(currentScrollPosition);
+          });
+
         });
         
 
